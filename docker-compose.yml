@@ -1,0 +1,14 @@
+python_server:
+  image: python_server:1.0
+  ports:
+   - "5000:5000"
+  environment:
+    ENV: DEV 
+  volumes:
+    - ./app:/app
+  links:
+    - redis
+  command: sh /cmd.sh
+
+redis:
+  image: redis:7.2
